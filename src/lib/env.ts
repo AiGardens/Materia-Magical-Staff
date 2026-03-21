@@ -1,5 +1,5 @@
 /**
- * Flowerbed — Fail-Fast Environment Validation
+ * Materia Magical Staff — Fail-Fast Environment Validation
  * Guardrail: All env vars MUST be declared here. App refuses to start if any required
  * secret is missing. Import this file in layout.tsx to validate on every cold start.
  */
@@ -20,22 +20,33 @@ const envSchema = z.object({
     .min(32, "BETTER_AUTH_SECRET must be at least 32 characters"),
   BETTER_AUTH_URL: z.string().url("BETTER_AUTH_URL must be a valid URL"),
 
-  // ── Email (Resend) ────────────────────────────────────────
-  RESEND_API_KEY: z
+  // ── App Public URL ────────────────────────────────────────
+  // Used to construct public eBay image URLs: https://{domain}/uploads/{filename}
+  NEXT_PUBLIC_APP_URL: z
     .string()
-    .startsWith("re_", "RESEND_API_KEY must start with 're_'"),
-  EMAIL_FROM: z.string().email("EMAIL_FROM must be a valid email address"),
+    .url("NEXT_PUBLIC_APP_URL must be a valid URL"),
 
-  // ── Background Jobs (Trigger.dev) ─────────────────────────
-  TRIGGER_SECRET_KEY: z
+  // ── eBay OAuth ────────────────────────────────────────────
+  EBAY_CLIENT_ID: z.string().min(1, "EBAY_CLIENT_ID is required"),
+  EBAY_CLIENT_SECRET: z.string().min(1, "EBAY_CLIENT_SECRET is required"),
+  EBAY_REFRESH_TOKEN: z.string().min(1, "EBAY_REFRESH_TOKEN is required"),
+  EBAY_MARKETPLACE_ID: z.string().default("EBAY_US"),
+  EBAY_MERCHANT_LOCATION_KEY: z
     .string()
-    .min(1, "TRIGGER_SECRET_KEY is required"),
+    .min(1, "EBAY_MERCHANT_LOCATION_KEY is required"),
 
-  // ── Error Monitoring (Sentry) ─────────────────────────────
-  SENTRY_DSN: z.string().url("SENTRY_DSN must be a valid URL").optional(),
+  // ── Google Gemini ─────────────────────────────────────────
+  GEMINI_API_KEY: z.string().min(1, "GEMINI_API_KEY is required"),
 
-  // ── Analytics (Plausible) ─────────────────────────────────
-  NEXT_PUBLIC_PLAUSIBLE_DOMAIN: z.string().optional(),
+  // ── Email (Resend) — Optional ─────────────────────────────
+  // Not required for core functionality.
+  RESEND_API_KEY: z.string().optional(),
+  EMAIL_FROM: z.string().email().optional(),
+
+  // ── Seed Script — Optional ─────────────────────────────
+  // Used by prisma/seed.ts to bootstrap the single admin user.
+  SEED_USER_EMAIL: z.string().email().optional(),
+  SEED_USER_PASSWORD: z.string().min(8).optional(),
 });
 
 const result = envSchema.safeParse(process.env);

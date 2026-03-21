@@ -1,5 +1,5 @@
 /**
- * Flowerbed — Middleware "Bouncer"
+ * Materia Magical Staff — Middleware "Bouncer"
  * Guardrail: DEFAULT-DENY. All routes require auth unless explicitly whitelisted.
  * Public routes: /, /login, /signup, /api/auth/**, /api/bot/**, and Next.js internals.
  */
@@ -9,11 +9,10 @@ import type { Session } from "@/lib/auth";
 
 // ── Public Route Whitelist ───────────────────────────────────────
 const PUBLIC_PATHS = [
-    "/",
     "/login",
     "/signup",
-    "/api/auth",   // Better Auth routes
-    "/api/bot",    // Bot Gateway (intentionally public for AI agents)
+    "/api/auth",      // Better Auth routes
+    "/api/internal",  // Server-to-server routes (e.g. mirror-upload from local dev)
     "/_next",
     "/favicon.ico",
     "/robots.txt",

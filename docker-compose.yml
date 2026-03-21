@@ -1,19 +1,23 @@
 # =============================================================
-# Flowerbed — Docker Compose Orchestration
-# Private bridge network: elite-net
+# Materia Magical Staff — Docker Compose Orchestration
+# Private bridge network: materia-net
 # Only the app port (3000) is exposed publicly.
+# Volume strategy:
+#   postgres-data  → persists DB across redeployments
+#   uploads-data   → persists user-uploaded images across redeployments
+#                    Mounted to /app/public/uploads so Next.js serves
+#                    them statically at https://{domain}/uploads/{filename}
 # =============================================================
 
-name: flowerbed
+name: materia-magical-staff
 
 networks:
-  elite-net:
+  materia-net:
     driver: bridge
 
 volumes:
   postgres-data:
-  plausible-db-data:
-  plausible-events-data:
+  uploads-data:
 
 
 services:
@@ -26,23 +30,25 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: production
-      DATABASE_URL: postgresql://flowerbed_user:${POSTGRES_PASSWORD}@postgres:5432/flowerbed_db
+      DATABASE_URL: postgresql://materia_user:${POSTGRES_PASSWORD}@postgres:5432/materia_db
     env_file:
       - .env
+    volumes:
+      - uploads-data:/app/public/uploads
     depends_on:
       postgres:
         condition: service_healthy
     networks:
-      - elite-net
+      - materia-net
     restart: unless-stopped
 
   # ── PostgreSQL Database ──────────────────────────────────────
   postgres:
     image: postgres:16-alpine
     environment:
-      POSTGRES_USER: flowerbed_user
+      POSTGRES_USER: materia_user
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: flowerbed_db
+      POSTGRES_DB: materia_db
     env_file:
       - .env
     volumes:
@@ -50,58 +56,10 @@ services:
     ports:
       - "5432:5432" # Expose to host for local development (remove in pure-production)
     networks:
-      - elite-net
+      - materia-net
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U flowerbed_user -d flowerbed_db" ]
+      test: [ "CMD-SHELL", "pg_isready -U materia_user -d materia_db" ]
       interval: 10s
       timeout: 5s
       retries: 5
     restart: unless-stopped
-
-  # ── Plausible Analytics ─────────────────────────────────────
-  plausible:
-    image: ghcr.io/plausible/community-edition:v2
-    command: sh -c "sleep 10 && /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh run"
-    environment:
-      BASE_URL: ${PLAUSIBLE_BASE_URL:-http://localhost:8000}
-      SECRET_KEY_BASE: ${PLAUSIBLE_SECRET_KEY_BASE}
-      DATABASE_URL: postgresql://plausible:${PLAUSIBLE_POSTGRES_PASSWORD}@plausible-postgres:5432/plausible_db
-      CLICKHOUSE_DATABASE_URL: http://plausible-events-db:8123/plausible_events
-    ports:
-      - "8000:8000" # Expose for direct access — proxy through Dokploy in production
-    depends_on:
-      - plausible-postgres
-      - plausible-clickhouse
-    networks:
-      - elite-net
-    restart: unless-stopped
-
-  plausible-postgres:
-    image: postgres:16-alpine
-    environment:
-      POSTGRES_USER: plausible
-      POSTGRES_PASSWORD: ${PLAUSIBLE_POSTGRES_PASSWORD}
-      POSTGRES_DB: plausible_db
-    volumes:
-      - plausible-db-data:/var/lib/postgresql/data
-    networks:
-      - elite-net
-    restart: unless-stopped
-
-  plausible-clickhouse:
-    image: clickhouse/clickhouse-server:24.3-alpine
-    volumes:
-      - plausible-events-data:/var/lib/clickhouse
-    networks:
-      - elite-net
-    restart: unless-stopped
-
-  # ── MCP Hub (AI Agent Sidecar) ───────────────────────────────
-  mcp-hub:
-    build:
-      context: ./mcp
-      dockerfile: Dockerfile
-    networks:
-      - elite-net
-    restart: unless-stopped
-    # NOT exposed to host — Next.js calls http://mcp-hub:3001 internally

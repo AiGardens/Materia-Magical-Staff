@@ -120,7 +120,1914 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* ================================================================
+   MATERIA MAGICAL STAFF — Retro Pixel-Art Design System
+   Theme: 90s/2000s Zelda × Pokémon × Lego
+   ================================================================ */
+
+/* ── Retro Color Palette ──────────────────────────────────────── */
+.theme-early-90s {
+  /* ── Chunky Early 90s Colors & Typography ─────────────────────── */
+  --retro-bg: #0a0a1a;
+  --retro-panel: #12122a;
+  --retro-border: #2a2a5a;
+  --retro-green: #00ff41;
+  --retro-yellow: #ffd700;
+  --retro-amber: #ffb300;
+  --retro-red: #ff3737;
+  --retro-blue: #4169ff;
+  --retro-purple: #9b59ff;
+  --retro-teal: #00d4aa;
+  --retro-white: #e8e8f0;
+  --retro-muted: #6a6a9a;
+  --retro-shadow: #000016;
+
+  --retro-input-bg: var(--retro-shadow);
+  --retro-input-color: var(--retro-green);
+  --retro-input-border: var(--retro-muted);
+
+  /* Pixel border thickness */
+  --px-border: 4px;
+
+  /* Typography */
+  --retro-font-title: var(--font-press-start), 'Courier New', monospace;
+  --retro-font-body: var(--font-vt323), 'Courier New', monospace;
+  --retro-body-size: 18px;
+  --retro-title-shadow: 3px 3px 0 var(--retro-shadow), -1px -1px 0 rgba(255, 215, 0, 0.2);
+  --retro-title-spacing: 2px;
+
+  /* Borders and Panels */
+  --pixel-box-shadow-panel: 0 0 0 2px var(--retro-shadow), 0 0 0 6px var(--retro-yellow), 0 0 0 8px var(--retro-shadow), 6px 6px 0 8px rgba(0, 0, 0, 0.5);
+  --pixel-box-shadow-hover: 5px 5px 0 0 var(--retro-shadow);
+  --pixel-box-shadow-active: 1px 1px 0 0 var(--retro-shadow);
+  --pixel-btn-border-width: 3px;
+  --pixel-border-radius: 0;
+  --panel-bg: var(--retro-panel);
+}
+
+.theme-late-90s {
+  /* ── Sleek Late 90s RPG Colors & Typography (FF7/FF9/Zelda) ─── */
+  --retro-bg: #000005;
+  /* completely black void like an RPG menu background */
+  --retro-panel: #000836;
+  /* base blue color, overridden by gradient below usually */
+  --retro-border: #d4d4dc;
+  /* silver/white borders */
+  --retro-green: #37ff7b;
+  /* bright hp green */
+  --retro-yellow: #fce28b;
+  /* gold highlights */
+  --retro-amber: #fc9c1a;
+  --retro-red: #ff3737;
+  --retro-blue: #40c6fa;
+  /* magic/mp cyan */
+  --retro-purple: #af66ff;
+  --retro-teal: #1afcdc;
+  --retro-white: #f5f5fa;
+  /* crisp white text */
+  --retro-muted: #8898a8;
+  /* soft silver-blue muted text */
+  --retro-shadow: #000000;
+  /* pure black drop shadows */
+
+  --retro-input-bg: #000310;
+  --retro-input-color: var(--retro-blue);
+  --retro-input-border: var(--retro-muted);
+
+  --px-border: 2px;
+  /* thinner, sleeker borders */
+
+  /* Typography */
+  --retro-font-title: var(--font-cinzel), serif;
+  --retro-font-body: var(--font-inter), sans-serif;
+  --retro-body-size: 16px;
+  --retro-title-shadow: 2px 2px 0 var(--retro-shadow);
+  --retro-title-spacing: 1px;
+
+  /* Borders and Panels */
+  /* FF7 style blue gradient background */
+  --panel-bg: linear-gradient(135deg, #001254 0%, #00021b 100%);
+  --pixel-box-shadow-panel: inset 0 0 0 2px #516b9b, 2px 4px 10px rgba(0, 0, 0, 0.7);
+  --pixel-box-shadow-hover: 1px 2px 8px rgba(0, 0, 0, 0.6);
+  --pixel-box-shadow-active: inset 2px 2px 5px rgba(0, 0, 0, 0.6);
+  --pixel-btn-border-width: 2px;
+  --pixel-border-radius: 4px;
+  /* slightly rounded corners typical of PS1 era menus */
+}
+
+.theme-adventure {
+  /* ── Adventure Theme (Steampunk / RPG Scrolls / Zeppelin) ───── */
+  --retro-bg: url('/bg-adventure.png') center/cover fixed #2c1e16;
+  --retro-panel: #f4e6c3;
+  /* parchment color */
+  --retro-border: #5c4033;
+  /* wood / leather brown borders */
+
+  /* High-Contrast "Ink" Accent Colors */
+  --retro-green: #22c55e;
+  /* Glowing Emerald */
+  --retro-yellow: #883600;
+  /* Deep Burned Orange/Brown */
+  --retro-amber: #9b4104;
+  /* Dark Rust Ink */
+  --retro-red: #7b241c;
+  /* Deep Crimson Ink */
+  --retro-blue: #154360;
+  /* Deep Navy Ink */
+  --retro-purple: #4a235a;
+  /* Deep Purple Ink */
+  --retro-teal: #0b5345;
+  /* Deep Veridian Ink */
+  --retro-white: #1a1005;
+  /* Jet black/brown for main body text */
+  --retro-muted: #6e4b3e;
+  /* Faded brown ink */
+  --retro-shadow: rgba(62, 39, 35, 0.4);
+  /* soft translucent brown shadow */
+
+  --retro-input-bg: #332a24;
+  /* Dark carved stone */
+  --retro-input-color: #f4e6c3;
+  --retro-input-border: #1a1005;
+
+  /* Stone input shadows and glows */
+  --pixel-box-shadow-input: inset 2px 2px 5px rgba(0, 0, 0, 0.8), inset -1px -1px 2px rgba(255, 255, 255, 0.05);
+
+  --px-border: 0px;
+  /* no hard edges */
+
+  /* Typography */
+  --retro-font-title: var(--font-macondo), serif;
+  --retro-font-body: var(--font-medieval), 'Courier New', monospace;
+  --retro-body-size: 18px;
+  --retro-title-shadow: none;
+  /* remove weird shadow from dark text */
+  --retro-title-spacing: 1px;
+
+  /* Borders and Panels */
+  --panel-bg: transparent;
+  /* background handles itself */
+  --pixel-box-shadow-panel: none;
+  --pixel-box-shadow-hover: none;
+  --pixel-box-shadow-active: none;
+  --pixel-btn-border-width: 0px;
+  --pixel-border-radius: 0px;
+
+  /* Restoring Version B: Seamless SVG ragged pixel borders */
+  --pixel-border-image-source: url('/scroll-edge.svg');
+  --pixel-border-image-slice: 50;
+  /* No 'fill' */
+  --pixel-border-image-width: 32px;
+  --pixel-border-image-outset: 0px;
+}
+
+.theme-adventure .retro-panel,
+.theme-adventure .pixel-border,
+.theme-adventure .pixel-header {
+  background-color: #ebdfc9 !important;
+  background-image: url('/parchment-tile.png') !important;
+  background-repeat: repeat !important;
+  background-size: 128px 128px !important;
+}
+
+.theme-adventure .retro-panel,
+.theme-adventure .pixel-border {
+  border-image: var(--pixel-border-image-source) var(--pixel-border-image-slice) / var(--pixel-border-image-width) / var(--pixel-border-image-outset) round !important;
+  border-style: solid !important;
+  border-color: transparent !important;
+  border-radius: 0px !important;
+  box-shadow: inset 0 0 40px rgba(62, 39, 35, 0.25) !important;
+}
+
+.theme-adventure .pixel-btn {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.25'/%3E%3C/svg%3E") !important;
+  border-radius: 4px !important;
+}
+
+.theme-adventure .pixel-input,
+.theme-adventure .pixel-select,
+.theme-adventure .pixel-toggle-track {
+  background-color: var(--retro-input-bg) !important;
+  background-image:
+    linear-gradient(rgba(51, 42, 36, 0.8), rgba(51, 42, 36, 0.9)),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.5'/%3E%3C/svg%3E") !important;
+  box-shadow: var(--pixel-box-shadow-input) !important;
+  border: 2px solid var(--retro-input-border) !important;
+  border-radius: 4px !important;
+}
+
+/* ── Custom SVG Scroll Procedural Shapes ──────────────────────── */
+.theme-adventure .pixel-border,
+.theme-adventure .pixel-header,
+.theme-adventure .upload-zone {
+  position: relative;
+  z-index: 1;
+  /* Create stacking context */
+}
+
+.theme-adventure .upload-zone:hover::before {
+  background: #faedcc;
+  /* Lighter on hover */
+}
+
+.theme-adventure .upload-zone-active::before {
+  background: #faedcc;
+  box-shadow: inset 0 0 60px rgba(211, 84, 0, 0.3);
+}
+
+/* ── Welcome Panel (semi-transparent overlay) ─────────────────── */
+/* Overrides the solid panel-bg with a 75%-opacity version so the  */
+/* page background shows through on the welcome screen only.       */
+.theme-early-90s .welcome-panel {
+  background: rgba(18, 18, 42, 0.75) !important;
+}
+.theme-late-90s .welcome-panel {
+  background: linear-gradient(135deg, rgba(0, 18, 84, 0.75) 0%, rgba(0, 2, 27, 0.75) 100%) !important;
+}
+/* Adventure theme: panel-bg is already transparent — no override needed */
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* MODERN — Apple / VisionOS Glassmorphism                        */
+/* ═══════════════════════════════════════════════════════════════ */
+
+.theme-modern {
+  /* ── Deep atmospheric night-sky background ──────────────────── */
+  --retro-bg: radial-gradient(ellipse at 30% 40%, #0c1e3a 0%, #0a0f1f 55%, #050810 100%);
+  --retro-panel: rgba(255, 255, 255, 0.07);
+  --retro-border: rgba(200, 220, 255, 0.16);
+
+  /* ── Palette — cool, airy, premium ─────────────────────────── */
+  --retro-green:  #4ade80;          /* soft emerald */
+  --retro-yellow: #b8d4f8;          /* ice-blue — primary accent / titles */
+  --retro-amber:  #fbbf24;
+  --retro-red:    #f87171;          /* soft rose-red */
+  --retro-blue:   #60a5fa;          /* cool azure */
+  --retro-purple: #a78bfa;
+  --retro-teal:   #2dd4bf;
+  --retro-white:  #e8f0ff;          /* near-white with cool blue tint */
+  --retro-muted:  rgba(180, 200, 240, 0.55);
+  --retro-shadow: rgba(0, 0, 0, 0.5);
+
+  /* ── Inputs ─────────────────────────────────────────────────── */
+  --retro-input-bg:     rgba(10, 20, 50, 0.5);
+  --retro-input-color:  var(--retro-white);
+  --retro-input-border: rgba(200, 220, 255, 0.2);
+
+  --px-border: 1px;
+
+  /* ── Typography — clean modern sans-serif ───────────────────── */
+  --retro-font-title: var(--font-cinzel), -apple-system, BlinkMacSystemFont, sans-serif;
+  --retro-font-body:  var(--font-inter),  -apple-system, BlinkMacSystemFont, sans-serif;
+  --retro-body-size:  15px;
+  --retro-title-shadow:   0 0 28px rgba(96, 165, 250, 0.22), 0 2px 8px rgba(0, 0, 0, 0.5);
+  --retro-title-spacing:  0.05em;
+
+  /* ── Glass panels ───────────────────────────────────────────── */
+  --panel-bg: rgba(255, 255, 255, 0.07);
+  --pixel-box-shadow-panel:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 0 0 1px rgba(200, 220, 255, 0.06);
+  --pixel-box-shadow-hover:
+    0 16px 48px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 0 0 1px rgba(200, 220, 255, 0.1);
+  --pixel-box-shadow-active:
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --pixel-btn-border-width: 1px;
+  --pixel-border-radius:    14px;
+}
+
+/* ── Backdrop blur on all glass panels ───────────────────────── */
+.theme-modern .pixel-border,
+.theme-modern .pixel-header,
+.theme-modern .retro-panel {
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+}
+
+/* ── Smooth glass buttons ────────────────────────────────────── */
+.theme-modern .pixel-btn {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.8) 0%, rgba(59, 130, 246, 0.7) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(147, 197, 253, 0.4);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  text-shadow: none;
+  transition: all 180ms ease;
+}
+.theme-modern .pixel-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(147, 197, 253, 0.9) 0%, rgba(96, 165, 250, 0.85) 100%);
+  box-shadow: 0 8px 28px rgba(59, 130, 246, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+.theme-modern .pixel-btn:active:not(:disabled) {
+  transform: translateY(0px);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.theme-modern .pixel-btn:disabled {
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: none;
+}
+
+/* Danger — rose-glass */
+.theme-modern .pixel-btn-danger {
+  background: linear-gradient(135deg, rgba(248, 113, 113, 0.8) 0%, rgba(220, 38, 38, 0.7) 100%);
+  border-color: rgba(252, 165, 165, 0.4);
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.theme-modern .pixel-btn-danger:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(252, 165, 165, 0.9) 0%, rgba(248, 113, 113, 0.85) 100%);
+  box-shadow: 0 8px 28px rgba(220, 38, 38, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Ghost — frosted */
+.theme-modern .pixel-btn-ghost {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--retro-yellow);
+  border-color: rgba(184, 212, 248, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+.theme-modern .pixel-btn-ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Emerald-ghost — green-glass */
+.theme-modern .pixel-btn-emerald-ghost {
+  background: rgba(74, 222, 128, 0.07) !important;
+  color: var(--retro-green) !important;
+  border-color: rgba(74, 222, 128, 0.35) !important;
+  box-shadow: 0 4px 20px rgba(74, 222, 128, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+.theme-modern .pixel-btn-emerald-ghost:hover:not(:disabled) {
+  background: rgba(74, 222, 128, 0.14) !important;
+  box-shadow: 0 8px 32px rgba(74, 222, 128, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-1px);
+}
+.theme-modern .pixel-btn-emerald-ghost:active:not(:disabled) {
+  transform: translateY(0px) !important;
+}
+
+/* ── Glass inputs ─────────────────────────────────────────────── */
+.theme-modern .pixel-input,
+.theme-modern .pixel-select {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
+}
+.theme-modern .pixel-input:focus,
+.theme-modern .pixel-select:focus {
+  border-color: rgba(96, 165, 250, 0.6) !important;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.18) !important;
+  outline: none;
+}
+
+/* ── Toggle — glass track ─────────────────────────────────────── */
+.theme-modern .pixel-toggle-track {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(200, 220, 255, 0.25);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.theme-modern .pixel-toggle input:checked + .pixel-toggle-track {
+  background-color: rgba(74, 222, 128, 0.7);
+  border-color: rgba(74, 222, 128, 0.5);
+  box-shadow: 0 0 12px rgba(74, 222, 128, 0.35), inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.theme-modern .pixel-toggle-thumb {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-color: rgba(200, 220, 255, 0.4);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Upload portal — deep glass ──────────────────────────────── */
+.theme-modern .upload-portal {
+  background: radial-gradient(
+    ellipse closest-side,
+    rgba(12, 30, 58, 0.65) 0%,
+    rgba(5, 8, 22, 0.3) 70%,
+    transparent 100%
+  );
+}
+.theme-modern .upload-portal:hover {
+  background: radial-gradient(
+    ellipse closest-side,
+    rgba(12, 30, 80, 0.72) 0%,
+    rgba(5, 8, 30, 0.38) 70%,
+    transparent 100%
+  );
+}
+.theme-modern .upload-portal-active {
+  background: radial-gradient(
+    ellipse closest-side,
+    rgba(20, 40, 90, 0.78) 0%,
+    rgba(5, 10, 35, 0.45) 70%,
+    transparent 100%
+  );
+}
+
+/* Rune ring — blue accent on hover/active instead of gold */
+.theme-modern .upload-portal:hover .rune-ring-spin::before,
+.theme-modern .upload-portal-active .rune-ring-spin::before {
+  border-color: rgba(96, 165, 250, 0.65);
+  box-shadow: 0 0 30px rgba(96, 165, 250, 0.4), inset 0 0 20px rgba(96, 165, 250, 0.2);
+}
+.theme-modern .upload-portal-active .rune-ring-spin {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg 10deg,
+    rgba(96, 165, 250, 0.8) 10deg 20deg,
+    transparent 20deg 40deg,
+    rgba(96, 165, 250, 0.6) 40deg 45deg,
+    transparent 45deg 70deg,
+    rgba(96, 165, 250, 0.9) 70deg 85deg,
+    transparent 85deg 360deg
+  );
+}
+
+/* ── Welcome panel — maximum glass ───────────────────────────── */
+.theme-modern .welcome-panel {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(36px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(36px) saturate(200%) !important;
+  border-color: rgba(200, 220, 255, 0.15) !important;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14) !important;
+}
+
+/* ── Image cards — glass micro-panels ────────────────────────── */
+.theme-modern .image-card {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ── Listing cards — glass ────────────────────────────────────── */
+.theme-modern .listing-card {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ── Retro Base Body ──────────────────────────────────────────── */
+.retro-body {
+  background: var(--retro-bg);
+  color: var(--retro-white);
+  font-family: var(--retro-font-body);
+  font-size: var(--retro-body-size);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ── Pixel Border ─────────────────────────────────────────────── */
+/*
+  Technique: 4-layer box-shadow creates the chunky retro border:
+    1. Inner dark ring
+    2. Solid color border
+    3. Outer dark trim
+    4. Deep drop shadow
+  No images, no extra libraries.
+*/
+.pixel-border {
+  border: var(--px-border) solid var(--retro-border);
+  box-shadow: var(--pixel-box-shadow-panel);
+  background: var(--panel-bg);
+  border-radius: var(--pixel-border-radius);
+
+  border-image-source: var(--pixel-border-image-source, none);
+  border-image-slice: var(--pixel-border-image-slice, 100% fill);
+  border-image-width: var(--pixel-border-image-width, auto);
+  border-image-outset: var(--pixel-border-image-outset, 0px);
+  border-image-repeat: round;
+}
+
+.pixel-border-blue {
+  border-color: var(--retro-blue);
+  box-shadow:
+    0 0 0 2px var(--retro-shadow),
+    0 0 0 6px var(--retro-blue),
+    0 0 0 8px var(--retro-shadow),
+    6px 6px 0 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Pixel Header ─────────────────────────────────────────────── */
+.pixel-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--panel-bg);
+  border-bottom: var(--px-border) solid var(--retro-yellow);
+  box-shadow: var(--pixel-box-shadow-panel);
+
+  border-image-source: var(--pixel-border-image-source, none);
+  border-image-slice: var(--pixel-border-image-slice, 100% fill);
+  border-image-width: var(--pixel-border-image-width, auto);
+  border-image-outset: var(--pixel-border-image-outset, 0px);
+  border-image-repeat: stretch;
+}
+
+.pixel-border-green {
+  border-color: var(--retro-green);
+  box-shadow:
+    0 0 0 2px var(--retro-shadow),
+    0 0 0 6px var(--retro-green),
+    0 0 0 8px var(--retro-shadow),
+    6px 6px 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.pixel-border-red {
+  border-color: var(--retro-red);
+  box-shadow:
+    0 0 0 2px var(--retro-shadow),
+    0 0 0 6px var(--retro-red),
+    0 0 0 8px var(--retro-shadow),
+    6px 6px 0 8px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Pixel Button ─────────────────────────────────────────────── */
+.pixel-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--retro-yellow);
+  color: var(--retro-shadow);
+  font-family: var(--retro-font-title);
+  font-size: calc(var(--retro-body-size) * 0.7);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: var(--pixel-btn-border-width) solid var(--retro-shadow);
+  box-shadow: 4px 4px 0 0 var(--retro-shadow);
+  cursor: pointer;
+  border-radius: var(--pixel-border-radius);
+  transition: transform 60ms ease, box-shadow 60ms ease;
+  user-select: none;
+}
+
+.pixel-btn:hover {
+  background-color: var(--retro-amber);
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 0 var(--retro-shadow);
+}
+
+.pixel-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 0 var(--retro-shadow);
+}
+
+.pixel-btn:disabled {
+  background-color: var(--retro-muted);
+  color: var(--retro-border);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 3px 3px 0 0 var(--retro-shadow);
+}
+
+.pixel-btn-sm {
+  padding: 8px 16px;
+  font-size: 9px;
+}
+
+.pixel-btn-danger {
+  background-color: var(--retro-red);
+  color: var(--retro-white);
+}
+
+.pixel-btn-danger:hover {
+  background-color: #ff5555;
+}
+
+.pixel-btn-emerald {
+  background: radial-gradient(circle at 50% -20%, #4ade80, #15803d 70%, #14532d 100%) !important;
+  color: #ffffff !important;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.9), 0px 0px 10px rgba(0, 0, 0, 0.8) !important;
+  border: 2px solid #064e3b !important;
+  box-shadow:
+    inset 0 4px 6px rgba(255, 255, 255, 0.4),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.5),
+    0 4px 15px rgba(21, 128, 61, 0.6) !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.pixel-btn-emerald:hover {
+  background: radial-gradient(circle at 50% -10%, #86efac, #16a34a 70%, #14532d 100%) !important;
+  box-shadow:
+    inset 0 4px 8px rgba(255, 255, 255, 0.6),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.6),
+    0 6px 20px rgba(74, 222, 128, 0.8) !important;
+  transform: translateY(-1px) !important;
+}
+
+.pixel-btn-emerald:active {
+  background: radial-gradient(circle at 50% -30%, #22c55e, #166534 80%, #064e3b 100%) !important;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.8),
+    0 2px 5px rgba(21, 128, 61, 0.4) !important;
+  transform: translateY(2px) !important;
+}
+
+/* Disabled state for emerald buttons — must use !important to override the class's own !important rules */
+.pixel-btn-emerald:disabled,
+.pixel-btn-emerald-ghost:disabled {
+  background: var(--retro-muted) !important;
+  color: var(--retro-border) !important;
+  text-shadow: none !important;
+  box-shadow: 3px 3px 0 0 var(--retro-shadow) !important;
+  transform: none !important;
+  cursor: not-allowed !important;
+  opacity: 0.55 !important;
+  filter: none !important;
+}
+
+.pixel-btn-emerald-ghost {
+  background: radial-gradient(circle at 50% -20%, #4ade80, #15803d 70%, #14532d 100%) !important;
+  color: #ffffff !important;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.9), 0px 0px 10px rgba(0, 0, 0, 0.8) !important;
+  border: 2px solid #064e3b !important;
+  box-shadow:
+    inset 0 4px 6px rgba(255, 255, 255, 0.4),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.5),
+    0 4px 15px rgba(21, 128, 61, 0.6) !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.pixel-btn-emerald-ghost:hover {
+  background: transparent !important;
+  color: var(--retro-green) !important;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.8) !important;
+  border-color: var(--retro-green) !important;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.2), inset 0 0 5px rgba(34, 197, 94, 0.2) !important;
+  transform: translateY(-1px) !important;
+}
+
+.pixel-btn-emerald-ghost:active {
+  background: transparent !important;
+  box-shadow: 0 0 5px rgba(34, 197, 94, 0.1), inset 0 0 2px rgba(34, 197, 94, 0.1) !important;
+  transform: translateY(2px) !important;
+}
+
+.pixel-btn-ghost {
+  background-color: transparent;
+  color: var(--retro-yellow);
+  border-color: var(--retro-yellow);
+  box-shadow: 4px 4px 0 0 var(--retro-yellow);
+}
+
+.pixel-btn-ghost:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+/* ── Pixel Input ──────────────────────────────────────────────── */
+.pixel-input {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  background-color: var(--retro-input-bg, var(--retro-shadow));
+  color: var(--retro-input-color, var(--retro-green));
+  font-family: var(--retro-font-body);
+  font-size: calc(var(--retro-body-size) * 1.1);
+  border: var(--pixel-btn-border-width) solid var(--retro-input-border, var(--retro-muted));
+  box-shadow: inset 2px 2px 0 0 rgba(0, 0, 0, 0.5);
+  border-radius: var(--pixel-border-radius);
+  outline: none;
+  caret-color: var(--retro-green);
+  transition: border-color 120ms ease;
+}
+
+.pixel-input:focus {
+  border-color: var(--retro-yellow);
+  box-shadow:
+    inset 2px 2px 0 0 rgba(0, 0, 0, 0.5),
+    0 0 0 2px var(--retro-yellow);
+}
+
+.pixel-input::placeholder {
+  color: var(--retro-muted);
+  opacity: 0.6;
+}
+
+.pixel-input-error {
+  border-color: var(--retro-red);
+}
+
+.pixel-input-error:focus {
+  border-color: var(--retro-red);
+  box-shadow:
+    inset 2px 2px 0 0 rgba(0, 0, 0, 0.5),
+    0 0 0 2px var(--retro-red);
+}
+
+/* ── Pixel Select ─────────────────────────────────────────────── */
+.pixel-select {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  padding-right: 40px;
+  background-color: var(--retro-input-bg, var(--retro-shadow));
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M0 0l6 8 6-8z' fill='%23ffd700'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  color: var(--retro-input-color, var(--retro-white));
+  font-family: var(--retro-font-body);
+  font-size: var(--retro-body-size);
+  border: var(--pixel-btn-border-width) solid var(--retro-input-border, var(--retro-muted));
+  box-shadow: inset 2px 2px 0 0 rgba(0, 0, 0, 0.5);
+  border-radius: var(--pixel-border-radius);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.pixel-select:focus {
+  border-color: var(--retro-yellow);
+  box-shadow:
+    inset 2px 2px 0 0 rgba(0, 0, 0, 0.5),
+    0 0 0 2px var(--retro-yellow);
+}
+
+.pixel-select option {
+  background-color: var(--retro-panel);
+  color: var(--retro-white);
+}
+
+/* ── Typography ───────────────────────────────────────────────── */
+.retro-title {
+  font-family: var(--retro-font-title);
+  color: var(--retro-yellow);
+  text-shadow: var(--retro-title-shadow);
+  letter-spacing: var(--retro-title-spacing);
+  line-height: 1.6;
+}
+
+.retro-subtitle {
+  font-family: var(--retro-font-title);
+  color: var(--retro-teal);
+  font-size: calc(var(--retro-body-size) * 0.6);
+  letter-spacing: var(--retro-title-spacing);
+  text-shadow: 2px 2px 0 var(--retro-shadow);
+}
+
+.retro-label {
+  font-family: var(--retro-font-title);
+  color: var(--retro-yellow);
+  font-size: calc(var(--retro-body-size) * 0.6);
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.retro-body-text {
+  font-family: var(--retro-font-body);
+  color: var(--retro-white);
+  font-size: var(--retro-body-size);
+  line-height: 1.5;
+}
+
+.retro-error {
+  font-family: var(--retro-font-title);
+  color: var(--retro-red);
+  font-size: calc(var(--retro-body-size) * 0.6);
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 var(--retro-shadow);
+}
+
+.retro-muted {
+  color: var(--retro-muted);
+}
+
+/* ── Pixel Toggle ─────────────────────────────────────────────── */
+.pixel-toggle {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.pixel-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.pixel-toggle-track {
+  position: absolute;
+  inset: 0;
+  background-color: var(--retro-muted);
+  border: 3px solid var(--retro-shadow);
+  box-shadow: 2px 2px 0 0 var(--retro-shadow);
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.pixel-toggle input:checked+.pixel-toggle-track {
+  background-color: var(--retro-green);
+}
+
+.pixel-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--retro-white);
+  border: 2px solid var(--retro-shadow);
+  transition: transform 150ms ease;
+  pointer-events: none;
+}
+
+.pixel-toggle input:checked~.pixel-toggle-thumb {
+  transform: translateX(24px);
+}
+
+/* ── Scanline Overlay (subtle retro CRT effect) ───────────────── */
+.retro-scanlines {
+  position: relative;
+}
+
+.retro-scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.06) 2px,
+      rgba(0, 0, 0, 0.06) 4px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Blinking Cursor Animation ────────────────────────────────── */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink 1s step-start infinite;
+}
+
+/* ── Retro Panel / Card ───────────────────────────────────────── */
+.retro-panel {
+  background: var(--panel-bg);
+  border: var(--px-border) solid var(--retro-border);
+  border-radius: var(--pixel-border-radius);
+  box-shadow: var(--pixel-box-shadow-panel);
+  padding: 20px;
+}
+
+/* ── Progress Bar ─────────────────────────────────────────────── */
+@keyframes progress-shine {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.pixel-progress-track {
+  background-color: var(--retro-shadow);
+  border: 3px solid var(--retro-muted);
+  height: 24px;
+  overflow: hidden;
+}
+
+.pixel-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg,
+      var(--retro-green) 0%,
+      var(--retro-teal) 50%,
+      var(--retro-green) 100%);
+  background-size: 200% auto;
+  animation: progress-shine 2s linear infinite;
+  transition: width 300ms ease-out;
+}
+
+/* ================================================================
+   PHASE 3 — Image Ingestion & Visual Grouping
+   ================================================================ */
+
+/* ── Upload Portal (Phase 3 Redesign) ───────────────────────────── */
+.upload-portal {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 2rem;
+  /* Massive dark backdrop that cleanly fades before the edges */
+  background: radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  transition: background 300ms ease;
+}
+
+.upload-portal:hover {
+  background: radial-gradient(ellipse closest-side, rgba(20, 15, 0, 0.9) 0%, rgba(20, 15, 0, 0.5) 60%, transparent 100%);
+}
+
+.upload-portal-active {
+  background: radial-gradient(ellipse closest-side, rgba(30, 25, 5, 0.95) 0%, rgba(30, 25, 5, 0.6) 65%, transparent 100%);
+}
+
+.upload-portal-uploading {
+  cursor: not-allowed;
+}
+
+/* ── Glowing Rune Ring ────────────────────────────────────────── */
+.rune-ring-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 340px;
+  height: 340px;
+}
+
+.rune-ring-spin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  /* Create the dashed "runes" effect using repeating conic gradients */
+  background:
+    conic-gradient(from 0deg,
+      transparent 0deg 10deg,
+      rgba(255, 255, 255, 0.4) 10deg 20deg,
+      transparent 20deg 40deg,
+      rgba(255, 255, 255, 0.2) 40deg 45deg,
+      transparent 45deg 70deg,
+      rgba(255, 255, 255, 0.5) 70deg 85deg,
+      transparent 85deg 360deg);
+  -webkit-mask: radial-gradient(transparent 65%, black 66%);
+  mask: radial-gradient(transparent 65%, black 66%);
+  animation: spin-ring 60s linear infinite;
+  transition: all 300ms ease;
+}
+
+/* Add an outer glowing track */
+.rune-ring-spin::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  transition: all 300ms ease;
+}
+
+/* Add an inner glowing track */
+.rune-ring-spin::after {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.upload-portal:hover .rune-ring-spin,
+.upload-portal-active .rune-ring-spin {
+  animation: spin-ring 20s linear infinite;
+}
+
+.upload-portal:hover .rune-ring-spin::before,
+.upload-portal-active .rune-ring-spin::before {
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.4), inset 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.upload-portal-active .rune-ring-spin {
+  background:
+    conic-gradient(from 0deg,
+      transparent 0deg 10deg,
+      rgba(255, 215, 0, 0.8) 10deg 20deg,
+      transparent 20deg 40deg,
+      rgba(255, 215, 0, 0.6) 40deg 45deg,
+      transparent 45deg 70deg,
+      rgba(255, 215, 0, 0.9) 70deg 85deg,
+      transparent 85deg 360deg);
+}
+
+@keyframes spin-ring {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.portal-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
+  /* Let clicks pass through to the portal container */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 0, 0, 1);
+}
+
+.theme-adventure .portal-title-text {
+  font-family: var(--font-cinzel), serif !important;
+  font-size: 24px !important;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.theme-adventure .cinzel-text {
+  font-family: var(--font-cinzel), serif !important;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* ── Gallery Grids ──────────────────────────────────────────────── */
+.gallery-grid-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.25rem;
+}
+
+.gallery-grid-clusters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── Ungrouped Image Card ───────────────────────────────────────── */
+.image-card {
+  position: relative;
+  background: var(--panel-bg);
+  border: var(--px-border) solid var(--retro-border);
+  border-radius: var(--pixel-border-radius);
+  transition: border-color 120ms ease, transform 60ms ease;
+  cursor: grab;
+}
+
+.image-card:hover {
+  border-color: var(--retro-yellow);
+}
+
+.image-card:active {
+  cursor: grabbing;
+}
+
+/* The image thumbnail area */
+.image-card-thumb {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: var(--retro-shadow);
+}
+
+/* Overlay label shown on hover */
+.image-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 6px;
+  background: rgba(0, 0, 22, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.image-card:hover .image-card-overlay {
+  opacity: 1;
+}
+
+/* Remove button — top-right corner */
+.image-card-remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 120ms ease;
+  padding: 4px 6px !important;
+  font-size: 8px !important;
+}
+
+.image-card:hover .image-card-remove {
+  opacity: 1;
+}
+
+/* ── Cluster Card ───────────────────────────────────────────────── */
+.cluster-card {
+  background: var(--panel-bg);
+  border: var(--px-border) solid var(--retro-border);
+  border-radius: var(--pixel-border-radius);
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  /* Prevent card itself from being draggable and confusing D&D */
+  user-select: none;
+}
+
+.cluster-card:hover {
+  border-color: var(--retro-blue);
+}
+
+/* Drop target state — when an ungrouped image is hovered over this cluster */
+.cluster-card-target {
+  border-color: var(--retro-yellow) !important;
+  box-shadow:
+    0 0 0 2px rgba(255, 215, 0, 0.3),
+    inset 0 0 20px rgba(255, 215, 0, 0.05);
+}
+
+/* Blocked flash — when a cluster is dragged onto this cluster */
+.cluster-card-blocked {
+  border-color: var(--retro-red) !important;
+  box-shadow:
+    0 0 0 2px rgba(255, 55, 55, 0.5),
+    inset 0 0 20px rgba(255, 55, 55, 0.08);
+  animation: blocked-flash 0.6s ease-out forwards;
+}
+
+@keyframes blocked-flash {
+  0% {
+    border-color: var(--retro-red);
+  }
+
+  60% {
+    border-color: var(--retro-red);
+  }
+
+  100% {
+    border-color: var(--retro-border);
+  }
+}
+
+/* Card header bar */
+.cluster-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--retro-border);
+  background: rgba(0, 0, 22, 0.3);
+}
+
+/* ── Cluster Image Strip ────────────────────────────────────────── */
+.cluster-image-strip {
+  display: flex;
+  gap: 6px;
+  padding: 10px 10px 6px;
+  overflow-x: auto;
+  min-height: 100px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Individual thumbnail within a cluster */
+.cluster-thumb {
+  position: relative;
+  flex-shrink: 0;
+  width: 90px;
+  height: 90px;
+  border: 2px solid var(--retro-border);
+  overflow: hidden;
+  transition: border-color 120ms ease;
+}
+
+.cluster-thumb:hover {
+  border-color: var(--retro-muted);
+}
+
+/* Main image — larger + highlighted */
+.cluster-thumb-main {
+  width: 140px;
+  height: 140px;
+  border-color: var(--retro-yellow);
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.3);
+  order: -1;
+  /* Always first in the strip */
+}
+
+/* MAIN badge on the primary image thumbnail */
+.main-image-badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--retro-yellow);
+  color: var(--retro-shadow);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  text-align: center;
+  padding: 3px;
+  letter-spacing: 1px;
+}
+
+/* Crown button — appears on non-main thumbnails on hover */
+.crown-btn {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 22px;
+  height: 22px;
+  background: rgba(0, 0, 22, 0.8);
+  border: 2px solid var(--retro-yellow);
+  color: var(--retro-yellow);
+  font-size: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 120ms ease;
+  z-index: 2;
+}
+
+.cluster-thumb:hover .crown-btn {
+  opacity: 1;
+}
+
+/* Eject button — top-right on all thumbnails */
+.thumb-eject-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 55, 55, 0.85);
+  border: 2px solid var(--retro-red);
+  color: var(--retro-white);
+  font-size: 9px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 120ms ease;
+  z-index: 2;
+}
+
+.cluster-thumb:hover .thumb-eject-btn {
+  opacity: 1;
+}
+
+/* Drop hint cell (shown in strip during drag) */
+.cluster-drop-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 90px;
+  border: 3px dashed var(--retro-yellow);
+  background: rgba(255, 215, 0, 0.05);
+}
+
+/* ── Price Override Banner ──────────────────────────────────────── */
+.price-override-banner {
+  margin: 0 10px 0;
+  padding: 8px 12px;
+  background: rgba(0, 255, 65, 0.06);
+  border: 3px solid var(--retro-green);
+  box-shadow: 0 0 0 1px rgba(0, 255, 65, 0.2);
+  color: var(--retro-green);
+  font-family: var(--retro-font-title);
+  font-size: calc(var(--retro-body-size) * 0.6);
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  animation: price-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes price-pulse {
+  from {
+    box-shadow: 0 0 0 1px rgba(0, 255, 65, 0.15);
+  }
+
+  to {
+    box-shadow: 0 0 0 4px rgba(0, 255, 65, 0.35);
+  }
+}
+
+/* ================================================================
+   PHASE 5 — Review Dashboard & Dig Deeper
+   ================================================================ */
+
+/* ── Review Dashboard Container ─────────────────────────────────── */
+.review-dashboard {
+  margin-top: 2rem;
+}
+
+.review-dashboard-header {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+}
+
+.review-dashboard-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Listing Card ────────────────────────────────────────────────── */
+.listing-card {
+  margin-bottom: 0;
+  border-radius: 0;
+  overflow: hidden;
+  transition: box-shadow 200ms ease;
+}
+
+.listing-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(0, 0, 22, 0.4);
+  border-bottom: 2px solid var(--retro-border);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.listing-card-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.listing-card-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.listing-card-body {
+  padding: 0;
+}
+
+.listing-card-section {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 2px solid var(--retro-border);
+}
+
+.listing-card-section:last-child {
+  border-bottom: none;
+}
+
+.listing-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(0, 0, 22, 0.3);
+  border-top: 2px solid var(--retro-border);
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Two-column layout for price + core fields */
+.listing-card-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .listing-card-two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.listing-card-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── Image Gallery within Card ───────────────────────────────────── */
+.listing-card-images {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.listing-card-img-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  border: 2px solid var(--retro-border);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--retro-shadow);
+}
+
+/* Main image — larger + golden border */
+.listing-card-img-main {
+  width: 160px;
+  height: 160px;
+  border-color: var(--retro-yellow);
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.3);
+  order: -1;
+}
+
+/* ── Confidence Gauges ───────────────────────────────────────────── */
+.confidence-gauges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.confidence-gauge {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.confidence-gauge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.confidence-gauge-label {
+  font-family: var(--retro-font-title);
+  font-size: calc(var(--retro-body-size) * 0.5);
+  color: var(--retro-muted);
+  letter-spacing: 0.5px;
+}
+
+.confidence-gauge-value {
+  font-family: var(--retro-font-title);
+  font-size: calc(var(--retro-body-size) * 0.6);
+  letter-spacing: 1px;
+}
+
+/* The track / background bar */
+.confidence-gauge-track {
+  position: relative;
+  height: 16px;
+  background: var(--retro-shadow);
+  border: 2px solid var(--retro-border);
+  overflow: visible;
+}
+
+/* The colored fill bar */
+.gauge-fill {
+  height: 100%;
+  transition: width 400ms ease-out;
+  position: relative;
+}
+
+/* Subtle shine on gauge fill */
+.gauge-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+}
+
+/* Tick marks */
+.confidence-gauge-tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(0, 0, 22, 0.6);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+/* ── Status Badge ────────────────────────────────────────────────── */
+.status-badge {
+  font-family: var(--retro-font-title);
+  font-size: calc(var(--retro-body-size) * 0.5);
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border: 2px solid;
+  background: transparent;
+}
+
+/* ── Price Override Badge ────────────────────────────────────────── */
+.price-override-badge {
+  font-family: var(--retro-font-title);
+  font-size: calc(var(--retro-body-size) * 0.5);
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border: 2px solid var(--retro-green);
+  color: var(--retro-green);
+  background: rgba(0, 255, 65, 0.07);
+  animation: price-pulse 2s ease-in-out infinite alternate;
+}
+
+/* ── Editable Field ──────────────────────────────────────────────── */
+.editable-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pixel-input-textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.pixel-input-mono {
+  font-family: var(--retro-font-body) !important;
+  font-size: var(--retro-body-size) !important;
+  line-height: 1.4 !important;
+}
+
+/* ── Item Specifics Grid ─────────────────────────────────────────── */
+.item-specifics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.specific-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ── Dimensions Grid ─────────────────────────────────────────────── */
+.dimensions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+/* ── Pricing Rationale & Identity ───────────────────────────────── */
+.pricing-rationale {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--retro-white);
+  background: rgba(0, 0, 22, 0.2);
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--retro-teal);
+  margin: 0;
+}
+
+/* ── Pricing Sources List ────────────────────────────────────────── */
+.pricing-sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.retro-link {
+  font-family: var(--retro-font-body);
+  font-size: var(--retro-body-size);
+  color: var(--retro-blue);
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 100ms ease;
+}
+
+.retro-link:hover {
+  color: var(--retro-teal);
+  text-decoration: underline;
+}
+
+/* ── eBay Error Block ────────────────────────────────────────────── */
+.retro-error-block {
+  font-family: var(--retro-font-body);
+  font-size: calc(var(--retro-body-size) * 0.8);
+  color: var(--retro-red);
+  background: var(--retro-shadow);
+  padding: 1rem;
+  overflow: auto;
+  max-height: 300px;
+  border: 2px solid var(--retro-red);
+  white-space: pre-wrap;
+}
+
+/* ── Dig Deeper Loading State ────────────────────────────────────── */
+.dig-deeper-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(155, 89, 255, 0.06);
+  border-bottom: 2px solid var(--retro-purple);
+}
+
+/* ================================================================
+   PHASE 6 — Summon to eBay (Draft Publishing)
+   ================================================================ */
+
+/* ── Summon Bar ─────────────────────────────────────────────────── */
+.summon-bar {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  margin-top: 2rem;
+  background: var(--panel-bg);
+  border-top: var(--px-border) solid var(--retro-border);
+  z-index: 100;
+}
+
+/* Error message rendered INSIDE the sticky bar — always visible to the user */
+.summon-bar-error {
+  font-family: var(--retro-font-body);
+  font-size: calc(var(--retro-body-size) * 0.8);
+  color: var(--retro-red);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--retro-red);
+  white-space: pre-wrap;
+  max-height: 150px;
+  overflow-y: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Inner row: info + buttons side by side */
+.summon-bar-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.summon-bar-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Two-button row inside the summon bar */
+.summon-btn-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ── Summon Button base ──────────────────────────────────────────── */
+.summon-btn {
+  font-family: var(--retro-font-title);
+  font-size: calc(var(--retro-body-size) * 0.7);
+  padding: 14px 22px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+/* Schedule button — green */
+.pixel-btn-emerald.summon-btn {
+  background-color: var(--retro-green);
+  color: var(--retro-shadow);
+}
+
+.pixel-btn-emerald.summon-btn:hover:not(:disabled) {
+  background-color: var(--retro-teal);
+  color: var(--retro-shadow);
+}
+
+/* Publish Now button — red/danger */
+.summon-btn-publish-now {
+  background-color: var(--retro-red) !important;
+  color: var(--retro-white) !important;
+}
+
+.summon-btn-publish-now:hover:not(:disabled) {
+  filter: brightness(1.2);
+}
+
+.summon-btn-loading {
+  opacity: 0.85;
+  cursor: wait;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.summon-btn-spinner {
+  display: inline-block;
+  animation: retro-spin 0.8s steps(4, end) infinite;
+}
+
+@keyframes retro-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  75% {
+    transform: rotate(270deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Summon Modal Overlay ───────────────────────────────────────── */
+.summon-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 22, 0.88);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  backdrop-filter: blur(3px);
+}
+
+.summon-modal {
+  background: var(--panel-bg);
+  border: var(--px-border) solid var(--retro-border);
+  border-radius: var(--pixel-border-radius);
+  box-shadow: var(--pixel-box-shadow-panel);
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Modal Header ───────────────────────────────────────────────── */
+.summon-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 3px solid var(--retro-border);
+  background: rgba(0, 0, 22, 0.3);
+}
+
+/* ── Draft-Only Warning Banner ──────────────────────────────────── */
+.summon-draft-banner {
+  background: rgba(255, 179, 0, 0.1);
+  border-bottom: 2px solid var(--retro-amber);
+  padding: 0.75rem 1.5rem;
+  font-family: var(--retro-font-title);
+  font-size: calc(var(--retro-body-size) * 0.5);
+  color: var(--retro-amber);
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+/* ── Modal Success Area ─────────────────────────────────────────── */
+.summon-modal-success {
+  margin: 1.5rem;
+  padding: 1.5rem;
+}
+
+/* ── Modal Failures ─────────────────────────────────────────────── */
+.summon-modal-failures {
+  padding: 0 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── Individual Error Card ──────────────────────────────────────── */
+.summon-error-card {
+  background: rgba(255, 55, 55, 0.05);
+  border: 3px solid var(--retro-red);
+  padding: 1rem;
+}
+
+.summon-error-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 6px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 55, 55, 0.3);
+}
+
+/* ── Modal Footer ───────────────────────────────────────────────── */
+.summon-modal-footer {
+  padding: 1rem 1.5rem 1.5rem;
+  border-top: 3px solid var(--retro-border);
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 22, 0.2);
+}
+
+/* ── pixel-btn-primary (green) ──────────────────────────────────── */
+.pixel-btn-primary {
+  background-color: var(--retro-green);
+  color: var(--retro-shadow);
+}
+
+.pixel-btn-primary:hover:not(:disabled) {
+  background-color: var(--retro-teal);
+  color: var(--retro-shadow);
+}
+
+/* ── Modal Section (success lists) ─────────────────────────────── */
+.summon-modal-section {
+  padding: 0 1.5rem;
+}
+
+/* ── Publish Now Confirmation Modal ─────────────────────────────── */
+.summon-confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  backdrop-filter: blur(6px);
+}
+
+.summon-confirm-modal {
+  background: var(--panel-bg);
+  border: 3px solid var(--retro-red);
+  border-radius: var(--pixel-border-radius);
+  box-shadow:
+    0 0 0 3px var(--retro-shadow),
+    0 0 40px rgba(255, 55, 55, 0.35),
+    var(--pixel-box-shadow-panel);
+  width: 100%;
+  max-width: 520px;
+  padding: 2rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.summon-confirm-icon {
+  font-size: 40px;
+  margin-bottom: 12px;
+  animation: retro-spin 2s steps(4, end) infinite;
+  line-height: 1;
+}
+
+.summon-confirm-btn-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* ── pixel-btn-danger (red) ─────────────────────────────────────── */
+.pixel-btn-danger {
+  background-color: var(--retro-red);
+  color: var(--retro-white);
+}
+
+.pixel-btn-danger:hover:not(:disabled) {
+  filter: brightness(1.2);
+  color: var(--retro-white);
+}
+
+/* ── Session 22 override: summon-draft-banner colour is dynamic ─── */
+/* Colours are set inline via style prop based on publishMode.      */
+/* This rule just resets the fixed amber tint from Phase 6.         */
+.summon-draft-banner {
+  background: rgba(0, 0, 0, 0.15);
 }

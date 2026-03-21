@@ -1,46 +1,62 @@
 /**
- * Flowerbed — Root Layout
- * - Imports env.ts to trigger fail-fast validation on every cold start
- * - Injects Plausible analytics script if NEXT_PUBLIC_PLAUSIBLE_DOMAIN is set
- * - Includes JSON-LD structured data for AI/bot legibility
+ * Materia Magical Staff — Root Layout
+ * Loads retro Google Fonts + fail-fast env validation on every cold start.
  */
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Press_Start_2P, VT323, Cinzel, Inter, Macondo, MedievalSharp } from "next/font/google";
 import "./globals.css";
-import { JsonLd } from "@/components/seo/JsonLd";
-
 // ── Fail-fast env validation — runs on every cold start ─────────
 import "@/lib/env";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const pressStart2P = Press_Start_2P({
+  weight: "400",
+  variable: "--font-press-start",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const vt323 = VT323({
+  weight: "400",
+  variable: "--font-vt323",
+  subsets: ["latin"],
+});
+
+// New Fonts for Late 90s RPG theme
+const cinzel = Cinzel({
+  weight: ["400", "700"],
+  variable: "--font-cinzel",
+  subsets: ["latin"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+// New Fonts for Adventure Theme
+const macondo = Macondo({
+  weight: "400",
+  variable: "--font-macondo",
+  subsets: ["latin"],
+});
+
+const medievalSharp = MedievalSharp({
+  weight: "400",
+  variable: "--font-medieval",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Flowerbed",
-    template: "%s | Flowerbed",
+    default: "Materia Magical Staff",
+    template: "%s | Materia Magical Staff",
   },
   description:
-    "A production-grade Next.js template — the AI Gardens Elite Web Pipeline.",
+    "The bulk eBay listing engine for professional resellers. Powered by AI.",
   robots: {
-    index: false, // Template default: do NOT index. Override per project.
+    index: false,
     follow: false,
   },
-};
-
-const websiteJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Flowerbed",
-  description: "Production-grade Next.js template by AI Gardens.",
-  url: process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
 };
 
 export default function RootLayout({
@@ -48,25 +64,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const plausibleDomain = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
-
   return (
-    <html lang="en">
-      <head>
-        <JsonLd data={websiteJsonLd} />
-        {/* Plausible Analytics — injected only when domain is configured */}
-        {plausibleDomain && (
-          <script
-            defer
-            data-domain={plausibleDomain}
-            src="https://plausible.io/js/script.js"
-          />
-        )}
-      </head>
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${pressStart2P.variable} ${vt323.variable} ${cinzel.variable} ${inter.variable} ${macondo.variable} ${medievalSharp.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="theme-early-90s"
+          themes={["theme-early-90s", "theme-late-90s", "theme-adventure"]}
+          enableSystem={false}
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,0 +1,4 @@
+# This file intentionally left as a placeholder.
+# It is gitignored. A Docker volume (uploads-data) will overlay this directory
+# in production, persisting uploaded images across container restarts.
+# In local development (no Docker), uploaded images are written here directly.

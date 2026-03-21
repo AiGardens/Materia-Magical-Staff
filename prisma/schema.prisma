@@ -1,6 +1,6 @@
-// Flowerbed — Prisma Schema
+// Materia Magical Staff — Prisma Schema
 // Guardrail: All DB changes go through migrations. No manual edits in production.
-// Note: DATABASE_URL is configured in prisma.config.ts (Prisma v7 requirement)
+// Note: DATABASE_URL is configured in env vars (loaded via .env)
 
 generator client {
   provider = "prisma-client-js"
@@ -24,8 +24,9 @@ model User {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
-  sessions      Session[]
-  accounts      Account[]
+  sessions         Session[]
+  accounts         Account[]
+  globalPreference GlobalPreference?
 }
 
 model Session {
@@ -65,4 +66,35 @@ model Verification {
   expiresAt  DateTime
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+}
+
+// ============================================================
+// Materia Magical Staff — Application Models
+// ============================================================
+
+// Stores all global seller preferences per user.
+// Loaded on login to populate the persistent global header.
+// One-to-one with User — created on first save, upserted on every change.
+model GlobalPreference {
+  id                  String   @id @default(cuid())
+  userId              String   @unique
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // ID of the selected eBay fulfillment (shipping) policy
+  shippingPolicyId    String?
+
+  // ID of the selected eBay return policy
+  returnPolicyId      String?
+
+  // ID of the selected eBay payment policy
+  paymentPolicyId     String?
+
+  // Whether to accept best offers on all listings (per-item overridable)
+  acceptOffers        Boolean  @default(true)
+
+  // % below asking price to auto-accept. E.g. 10 = auto-accept anything within 10% of price
+  autoAcceptThreshold Int      @default(10)
+
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
 }

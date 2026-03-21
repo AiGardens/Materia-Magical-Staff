@@ -46,3 +46,8 @@ yarn-error.log*
 next-env.d.ts
 
 /src/generated/
+
+# User-uploaded images (served statically, persisted via Docker volume)
+# Keep the directory in git but not the uploaded files themselves.
+/public/uploads/*
+!/public/uploads/.gitkeep

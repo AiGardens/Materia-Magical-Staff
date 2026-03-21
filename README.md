@@ -28,7 +28,6 @@ Built with four core guardrails:
 | **Server Actions First** | All data mutations use Next.js Server Actions — discoverable by humans and AI agents |
 | **Default-Deny Security** | All routes are private by default. Public routes must be explicitly whitelisted |
 | **Fail-Fast Validation** | App refuses to start if any required environment variable is missing |
-| **Machine Legibility** | JSON-LD on all pages + a `/api/bot/` gateway for AI agent consumption |
 
 ---
 
@@ -100,11 +99,9 @@ src/
 ├── app/
 │   ├── api/
 │   │   ├── auth/[...all]/   ← Better Auth handler
-│   │   └── bot/example/     ← AI Agent Bot Gateway
-│   ├── layout.tsx           ← Env validation + Plausible + JSON-LD
+│   ├── layout.tsx           ← Env validation + Plausible
 │   └── page.tsx
 ├── components/
-│   ├── seo/JsonLd.tsx       ← Schema.org injector
 │   └── ui/                  ← shadcn/ui components
 ├── emails/
 │   └── WelcomeEmail.tsx     ← React Email template
@@ -133,20 +130,11 @@ src/
 /login               ← Auth pages
 /signup
 /api/auth/**         ← Better Auth endpoints
-/api/bot/**          ← AI Agent Gateway (intentionally public)
 /_next/**            ← Next.js internals
 /favicon.ico, robots.txt, sitemap.xml
 ```
 
 To make a new route public, add it to the `PUBLIC_PATHS` array in `middleware.ts`.
-
----
-
-## AI Agent Readiness
-
-Every page has a `<JsonLd>` component injecting **Schema.org structured data** — readable by AI crawlers and agents without needing to parse HTML.
-
-The `/api/bot/` directory is a dedicated, always-public gateway for AI agents. It returns clean JSON with zero HTML overhead.
 
 ---
 
