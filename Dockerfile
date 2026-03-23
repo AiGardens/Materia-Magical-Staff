@@ -25,6 +25,9 @@ RUN npx prisma generate
 
 # Build Next.js — output: standalone for minimal image
 ENV NEXT_TELEMETRY_DISABLED=1
+# Skip runtime env validation during build — secrets are injected at container start,
+# not available at image-build time. Validation still runs on every cold start at runtime.
+ENV SKIP_ENV_VALIDATION=1
 RUN npm run build
 
 # Stage 3: Production runner (minimal image)

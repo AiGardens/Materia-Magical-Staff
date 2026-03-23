@@ -49,15 +49,23 @@ const envSchema = z.object({
   SEED_USER_PASSWORD: z.string().min(8).optional(),
 });
 
-const result = envSchema.safeParse(process.env);
+// During Docker image builds, runtime secrets are not available.
+// SKIP_ENV_VALIDATION=1 is set in the Dockerfile so the build succeeds.
+// Validation still runs on every cold start in production and in local dev.
+if (process.env.SKIP_ENV_VALIDATION !== "1") {
+  const result = envSchema.safeParse(process.env);
 
-if (!result.success) {
-  console.error("❌ FATAL: Invalid environment variables detected:");
-  console.error(result.error.flatten().fieldErrors);
-  throw new Error(
-    "Invalid environment configuration. Check your .env file and the schema in src/lib/env.ts."
-  );
+  if (!result.success) {
+    console.error("❌ FATAL: Invalid environment variables detected:");
+    console.error(result.error.flatten().fieldErrors);
+    throw new Error(
+      "Invalid environment configuration. Check your .env file and the schema in src/lib/env.ts."
+    );
+  }
 }
 
-export const env = result.data;
+const result = envSchema.safeParse(process.env);
+export const env = result.success
+  ? result.data
+  : (process.env as unknown as z.infer<typeof envSchema>);
 export type Env = z.infer<typeof envSchema>;
